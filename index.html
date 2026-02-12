@@ -403,7 +403,7 @@
 
   <!-- kenapa harus smk -->
   <section class="w-full bg-white py-20">
-    <div class="container mx-auto">
+    <div class="container mx-auto px-4">
       <div class="max-w-xl mx-auto text-center mb-16">
         <h1 class="font-bold text-slate-800 text-4xl capitalize mb-6">Kenapa Harus <span class="text-blue-600">SMK
             NEGERI</span> 1
@@ -1015,7 +1015,7 @@
   <script>
     const player = new Plyr('#player', {
       controls: [],
-      muted: false, // wajib untuk autoplay otomatis
+      muted: true, // wajib untuk autoplay otomatis
       loop: { active: true },
       autoplay: true,
       youtube: {
@@ -1045,7 +1045,17 @@
     );
     heroObserver.observe(hero);
 
+    // Optional: tombol unmute
+    const unmuteBtn = document.createElement('button');
+    unmuteBtn.innerText = "Unmute Video";
+    unmuteBtn.className = "absolute bottom-4 right-4 bg-yellow-300 text-black px-4 py-2 rounded shadow z-50";
+    document.body.appendChild(unmuteBtn);
 
+    unmuteBtn.addEventListener('click', () => {
+      player.muted = false;
+      player.play();
+      unmuteBtn.style.display = "none"; // sembunyikan tombol setelah unmute
+    });
   </script>
 
 </body>

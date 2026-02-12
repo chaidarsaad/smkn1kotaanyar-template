@@ -40,6 +40,26 @@
     .plyr--youtube .plyr__poster {
       display: none;
     }
+
+    #hero {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      /* pastikan selalu setidaknya 100% viewport */
+      overflow: hidden;
+    }
+
+    #hero .plyr__video-wrapper {
+      position: absolute !important;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100vw !important;
+      height: 100vh !important;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+    }
   </style>
 </head>
 
@@ -1002,6 +1022,18 @@
       player.play();
       unmuteBtn.style.display = "none"; // sembunyikan tombol setelah unmute
     });
+
+    function setHeroHeight() {
+      const hero = document.getElementById('hero');
+      hero.style.height = `${window.innerHeight}px`;
+    }
+
+    // set saat load
+    setHeroHeight();
+
+    // set saat resize / orientation change
+    window.addEventListener('resize', setHeroHeight);
+
   </script>
 
 

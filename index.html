@@ -1057,36 +1057,6 @@
       unmuteBtn.style.display = "none"; // sembunyikan tombol setelah unmute
     });
   </script>
-  <div id="player"></div>
-
-  <script>
-    // inisialisasi YouTube IFrame API
-    var tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    document.body.appendChild(tag);
-
-    let ytPlayer;
-
-    function onYouTubeIframeAPIReady() {
-      ytPlayer = new YT.Player('player', {
-        height: '360',
-        width: '640',
-        videoId: 'kEl7iM5DRkg',
-        playerVars: {
-          autoplay: 1,
-          controls: 0,
-          modestbranding: 1,
-          rel: 0
-        },
-        events: {
-          onReady: (event) => {
-            event.target.setPlaybackQuality('hd720'); // paksa ke 720p
-            event.target.playVideo();
-          }
-        }
-      });
-    }
-  </script>
 
 
 </body>
